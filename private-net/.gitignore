@@ -1,0 +1,11 @@
+
+## data directory
+geth/
+keystore/
+
+## logfile
+*.log
+nohup.out
+geth.pid
+networkid.txt
+genesis.json
