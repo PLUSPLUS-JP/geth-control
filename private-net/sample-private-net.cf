@@ -1,0 +1,13 @@
+#
+# geth-control privete-net config file
+#
+
+# for RPC connection
+OPT_RPC_PORT=8545
+
+# for web socket
+OPT_WS_PORT=8546
+
+# for geth
+OPT_GETH_PORT=30303
+

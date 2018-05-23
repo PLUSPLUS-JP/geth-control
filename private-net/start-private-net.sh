@@ -11,7 +11,26 @@
 DIR=$(cd $(dirname $0);pwd)
 
 source ${DIR}/_function.sh
-source ${DIR}/private-net.cf
+
+if [ -e "${DIR}/private-net.cf" ]; then
+    source ${DIR}/private-net.cf
+fi
+
+# for RPC connection
+DEFAULT_RPC_PORT=8545
+RPC_PORT=${OPT_RPC_PORT:-${DEFAULT_RPC_PORT}}
+
+# for web socket
+DEFAULT_WS_PORT=8546
+WS_PORT=${OPT_WS_PORT:-${DEFAULT_WS_PORT}}
+
+# for geth
+DEFAULT_GETH_PORT=30303
+GETH_PORT=${OPT_GETH_PORT:-${DEFAULT_GETH_PORT}}
+
+#echo RPC_PORT: ${RPC_PORT}
+#echo WS_PORT: ${WS_PORT}
+#echo GETH_PORT: ${GETH_PORT}
 
 # Get epoch second at startup
 if [ ! -e ${DIR}/networkid.txt ]; then
