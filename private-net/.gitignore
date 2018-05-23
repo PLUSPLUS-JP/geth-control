@@ -9,3 +9,4 @@ nohup.out
 geth.pid
 networkid.txt
 genesis.json
+private-net.cf
