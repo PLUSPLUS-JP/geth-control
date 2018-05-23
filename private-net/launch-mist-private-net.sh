@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------
-# geth-control: launch-mist.sh
+# geth-control: launch-mist-private-net.sh
 # ---------------------------------------------
 # Copyright (c) 2018 PLUSPLUS CO.,LTD.
 # Released under the MIT license
