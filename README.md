@@ -3,13 +3,14 @@ geth (go-ethereum client) control script
 
 <!-- TOC -->
 
-- [1. Overview / 概要](#1-overview--概要)
-- [2. How To Use. / 使用方法](#2-how-to-use--使用方法)
-    - [2.1. config / 初期設定](#21-config--初期設定)
-    - [2.2. create getesis.json / getesis.json を作成](#22-create-getesisjson--getesisjson-を作成)
-    - [2.3. initialize / 初期化](#23-initialize--初期化)
-    - [2.4. start private net / プライベートネットの起動](#24-start-private-net--プライベートネットの起動)
-    - [2.5. stop private net / プライベートネットの停止](#25-stop-private-net--プライベートネットの停止)
+- [geth (go-ethereum client) control script ](#geth-go-ethereum-client-control-script)
+- [1. Overview / 概要](#1-overview)
+- [2. How To Use. / 使用方法](#2-how-to-use)
+    - [2.1. config / 初期設定](#21-config)
+    - [2.2. create getesis.json / getesis.json を作成](#22-create-getesisjson---getesisjson)
+    - [2.3. initialize / 初期化](#23-initialize)
+    - [2.4. start private net / プライベートネットの起動](#24-start-private-net)
+    - [2.5. stop private net / プライベートネットの停止](#25-stop-private-net)
 
 <!-- /TOC -->
 
@@ -25,27 +26,26 @@ MacOSで動作することを確認しています。
 
 ## 2.1. config / 初期設定
 
-Edit `private-net/private-net.cf` and set the port number to be used for communication.
+If you want to change the port used for communication, create it as `private-net/private-net.cf` from `private-net/sample-private-net.cf` and set the port number.
 
-`private-net/private-net.cf` を編集し通信に使用するポート番号を設定します。
+通信に使用するポートを変更したい場合は、`private-net/sample-private-net.cf` から `private-net/private-net.cf` として作成し、ポート番号を設定します。
 
-- RPC_PORT
+- OPT_RPC_PORT (Default: 8545)
     - Specify the port number to be used for rpc connection.
     - rpc 接続で使用するポート番号を指定します。
-- WS_PORT
+- OPT_WS_PORT (Default: 8546)
     - Specify the port number to be used for web socket.
     - web socket で使用するポート番号を指定します。
-- GETH_PORT
+- OPT_GETH_PORT (Default: 30303)
     - Specify the port number that geth uses to communicate with other nodes.
     - gethが他のノードと通信する際に使用するポート番号を指定します。
 
-
 ## 2.2. create getesis.json / getesis.json を作成
 
-First of all, please create getesis.json.
+First of all, please create `getesis.json`.
 `sample-genesis.json` is a sample file. You can use it even if you copy it as it is.
 
-まずはじめに、getesis.json を作成してください。
+まずはじめに、`getesis.json` を作成してください。
 `sample-genesis.json` がサンプルファイルです。そのままコピーしても使えます。
 
 ## 2.3. initialize / 初期化
