@@ -9,6 +9,14 @@
 # ---------------------------------------------
 
 DIR=$(cd $(dirname $0);pwd)
+PID_FILE="${DIR}/geth.pid"
+
+if [ ! -e ${PID_FILE} ]; then
+    echo -e "\033[1;32m*** Not connected to a private network (PID file is not found) ***\033[0;39m"
+    echo
+
+    exit;
+fi
 
 source ${DIR}/_function.sh
 
