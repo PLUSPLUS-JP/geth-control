@@ -26,7 +26,13 @@ read answer
 function RUN () {
 
     PID=`cat ${PID_FILE}`
-    kill ${PID} & OK || NG
+
+    kill -0 ${PID} > /dev/null 2>&1
+
+    if [ $? = 0 ]; then
+        kill ${PID} & OK || NG
+    fi
+
     rm ${PID_FILE}
 }
 

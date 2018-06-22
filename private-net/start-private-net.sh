@@ -44,13 +44,33 @@ NET_ID=`cat ${DIR}/networkid.txt`
 PID_FILE="$DIR/geth.pid"
 
 if [ -e ${PID_FILE} ]; then
-    echo -e "\033[1;32m*** You are already connected to a private-net (there is a PID file) ***\033[0;39m"
-    echo
 
-    ls -l ${PID_FILE}
-    echo
+    PID=`cat ${PID_FILE}`
 
-    exit;
+    # Check if the process ID actually exists
+    kill -0 ${PID} > /dev/null 2>&1
+
+    if [ $? = 0 ]; then
+
+        # exist
+        echo -e "\033[1;32m*** You are already connected to a private-net (there is a PID file) ***\033[0;39m"
+        echo
+
+        ls -l ${PID_FILE}
+        echo
+
+        echo -e "\033[1;32m*** Running process ***\033[0;39m"
+        echo
+
+        ps u -p ${PID}
+        echo
+
+        exit;
+
+    else
+        # not exist
+        rm ${PID_FILE};
+    fi
 fi
 
 echo -ne "\033[1;32;40mConnect to private net? [YES/*] \033[0;39m"
